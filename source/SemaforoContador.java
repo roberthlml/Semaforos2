@@ -1,5 +1,7 @@
 package source;
 
+import gui.MainWindow;
+
 public class SemaforoContador { 
 	int value; 
 	
@@ -9,15 +11,21 @@ public class SemaforoContador {
 	
 	public synchronized void P() { 
 		value--; 
-		if( value < 0 ) 
+		if( value < 0 ) {
+			MainWindow.separadores_P();
+			MainWindow.separadores_CV();
 			Util.myWait( this );
-		} 
+		}
+	} 
 	
 	public synchronized void V() { 
 		value++;
-		if( value <= 0 )
+		if( value <= 0 ){
+			MainWindow.separadores_C();
+			MainWindow.separadores_PV();
 			notify();
 		}
+	}
 	
 	public int return_value(){
 		return value;

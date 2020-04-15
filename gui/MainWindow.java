@@ -32,6 +32,10 @@ public class MainWindow {
 	static JLabel lbl_semaforoProducor = new JLabel("SemaforoProductor");
 	static JLabel lbl_SemaforoConsumidor = new JLabel("[SemaforoConsumidor]");
 	static JLabel lblSemaforoBuffer = new JLabel("[Semaforo Buffer]");
+	static JSeparator separator_P1 = new JSeparator();
+	static JSeparator separator_P2 = new JSeparator();
+	static JSeparator separator_C1 = new JSeparator();
+	static JSeparator separator_C2 = new JSeparator();
 	
 	final static ImageIcon imgR = new ImageIcon("C:\\Users\\rober\\OneDrive\\Documents\\Eclipse\\Practica_9\\src\\imagenes\\semaforo_R.png");
 	static Image img_R = imgR.getImage();
@@ -80,11 +84,7 @@ public class MainWindow {
 	}
 	
 	public static void barra(int i){
-		progressBar.setValue(i);;
-	}
-	
-	public static void barra_menos(int i){
-		progressBar.setValue(i);;
+		progressBar.setValue(i);
 	}
 	
 	public static void semaforo_PR(){
@@ -123,6 +123,33 @@ public class MainWindow {
 		lblSemaforoBuffer.setIcon(Verde);
 	}
 	
+	public static void separadores_P(){
+		separator_P1.setBackground(Color.RED);
+		separator_P2.setBackground(Color.RED);
+		separator_P1.setForeground(Color.RED);
+		separator_P2.setForeground(Color.RED);
+	}	
+	
+	public static void separadores_PV(){
+		separator_P1.setBackground(Color.BLACK);
+		separator_P2.setBackground(Color.BLACK);
+		separator_P1.setForeground(Color.BLACK);
+		separator_P2.setForeground(Color.BLACK);
+	}
+	
+	public static void separadores_C(){
+		separator_C1.setBackground(Color.RED);
+		separator_C2.setBackground(Color.RED);
+		separator_C1.setForeground(Color.RED);
+		separator_C2.setForeground(Color.RED);
+	}	
+	
+	public static void separadores_CV(){
+		separator_C1.setBackground(Color.BLACK);
+		separator_C2.setBackground(Color.BLACK);
+		separator_C1.setForeground(Color.BLACK);
+		separator_C2.setForeground(Color.BLACK);
+	}
 
 	/**
 	 * Initialize the contents of the frame.
@@ -193,26 +220,26 @@ public class MainWindow {
 		lblVacio.setBounds(521, 300, 33, 14);
 		frmProductorconsumidor.getContentPane().add(lblVacio);
 		
-		JSeparator separator_P1 = new JSeparator();
+		
 		separator_P1.setForeground(Color.DARK_GRAY);
 		separator_P1.setBackground(Color.DARK_GRAY);
 		separator_P1.setBounds(430, 395, 224, 2);
 		frmProductorconsumidor.getContentPane().add(separator_P1);
 		
-		JSeparator separator_P2 = new JSeparator();
+		
 		separator_P2.setOrientation(SwingConstants.VERTICAL);
 		separator_P2.setForeground(Color.DARK_GRAY);
 		separator_P2.setBackground(Color.DARK_GRAY);
 		separator_P2.setBounds(652, 115, 2, 282);
 		frmProductorconsumidor.getContentPane().add(separator_P2);
 		
-		JSeparator separator_C1 = new JSeparator();
+		
 		separator_C1.setForeground(Color.DARK_GRAY);
 		separator_C1.setBackground(Color.DARK_GRAY);
 		separator_C1.setBounds(73, 395, 274, 2);
 		frmProductorconsumidor.getContentPane().add(separator_C1);
 		
-		JSeparator separator_C2 = new JSeparator();
+		
 		separator_C2.setForeground(Color.DARK_GRAY);
 		separator_C2.setBackground(Color.DARK_GRAY);
 		separator_C2.setOrientation(SwingConstants.VERTICAL);

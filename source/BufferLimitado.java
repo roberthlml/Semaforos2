@@ -34,7 +34,6 @@ public class BufferLimitado
 	
 	public double fetch()
 	{
-		aux_value--;
 		double value;
 		isEmpty.P(); // esperar si el buffer está vacío
 		mutex.P(); // asegura la exclusión mutua
@@ -42,7 +41,8 @@ public class BufferLimitado
 		outBuf = (outBuf+1) % size;
 		mutex.V();
 		isFull.V(); // notifica a cualquier productor en espera
-		MainWindow.barra_menos(aux_value*10-10);
+		aux_value--;
+		MainWindow.barra((aux_value*10)-10);
 		MainWindow.semaforo_CR();
 		MainWindow.semaforo_PV();
 		return value;
