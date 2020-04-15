@@ -27,7 +27,34 @@ import javax.swing.SpinnerNumberModel;
 public class MainWindow {
 
 	private JFrame frmProductorconsumidor;
+	static JProgressBar progressBar = new JProgressBar();
+	
+	static JLabel lbl_semaforoProducor = new JLabel("SemaforoProductor");
+	static JLabel lbl_SemaforoConsumidor = new JLabel("[SemaforoConsumidor]");
+	static JLabel lblSemaforoBuffer = new JLabel("[Semaforo Buffer]");
+	
+	final static ImageIcon imgR = new ImageIcon("C:\\Users\\rober\\OneDrive\\Documents\\Eclipse\\Practica_9\\src\\imagenes\\semaforo_R.png");
+	static Image img_R = imgR.getImage();
+	
+	
+	static ImageIcon imgV = new ImageIcon("C:\\Users\\rober\\OneDrive\\Documents\\Eclipse\\Practica_9\\src\\imagenes\\semaforo_V.png");
+	static Image img_V = imgV.getImage();
+	
+	
+	static ImageIcon imgBR = new ImageIcon("C:\\Users\\rober\\OneDrive\\Documents\\Eclipse\\Practica_9\\src\\imagenes\\semaforo_R.png");
+	static Image img_BR = imgR.getImage();
 
+	//IMAGENES
+	
+	
+			//ROJO
+			ImageIcon ii = new ImageIcon("C:\\Users\\rober\\OneDrive\\Documents\\Eclipse\\Practica_9\\src\\imagenes\\semaforo_R.png");
+			Image img = ii.getImage();
+		
+			
+			//VERDE
+			ImageIcon oo = new ImageIcon("C:\\Users\\rober\\OneDrive\\Documents\\Eclipse\\Practica_9\\src\\imagenes\\semaforo_V.png");
+			Image imgv = oo.getImage();
 	/**
 	 * Launch the application.
 	 */
@@ -48,8 +75,54 @@ public class MainWindow {
 	 * Create the application.
 	 */
 	public MainWindow() {
+		
 		initialize();
 	}
+	
+	public static void barra(int i){
+		progressBar.setValue(i);;
+	}
+	
+	public static void barra_menos(int i){
+		progressBar.setValue(i);;
+	}
+	
+	public static void semaforo_PR(){
+		final Image RojoSPB				= img_R.getScaledInstance(lbl_semaforoProducor.getWidth(), lbl_semaforoProducor.getHeight(), Image.SCALE_SMOOTH);
+		final ImageIcon Rojo_SPB		= new ImageIcon(RojoSPB);
+		lbl_semaforoProducor.setIcon(Rojo_SPB);
+	}
+	
+	public static void semaforo_CR(){
+		final Image RojoSVC				= img_R.getScaledInstance(lbl_SemaforoConsumidor.getWidth(), lbl_SemaforoConsumidor.getHeight(), Image.SCALE_SMOOTH);
+		final ImageIcon Rojo_SVC		= new ImageIcon(RojoSVC);
+		lbl_SemaforoConsumidor.setIcon(Rojo_SVC);
+	}
+	
+	public static void buffer_R(){
+		final Image RojoB			= img_BR.getScaledInstance(lblSemaforoBuffer.getWidth(), lblSemaforoBuffer.getHeight(), Image.SCALE_SMOOTH);
+		final ImageIcon Rojo_B		= new ImageIcon(RojoB);
+		lblSemaforoBuffer.setIcon(Rojo_B);
+	}
+	
+	public static void semaforo_CV(){
+		final Image VerdeV			= img_V.getScaledInstance(lbl_SemaforoConsumidor.getWidth(), lbl_SemaforoConsumidor.getHeight(), Image.SCALE_SMOOTH);
+		final ImageIcon Verde		= new ImageIcon(VerdeV);
+		lbl_SemaforoConsumidor.setIcon(Verde);
+	}
+	
+	public static void semaforo_PV(){
+		final Image VerdeV			= img_V.getScaledInstance(lbl_semaforoProducor.getWidth(), lbl_semaforoProducor.getHeight(), Image.SCALE_SMOOTH);
+		final ImageIcon Verde		= new ImageIcon(VerdeV);
+		lbl_semaforoProducor.setIcon(Verde);
+	}
+	
+	public static void semaforo_B(){
+		final Image BVerde			= img_V.getScaledInstance(lblSemaforoBuffer.getWidth(), lblSemaforoBuffer.getHeight(), Image.SCALE_SMOOTH);
+		final ImageIcon Verde		= new ImageIcon(BVerde);
+		lblSemaforoBuffer.setIcon(Verde);
+	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -74,17 +147,7 @@ public class MainWindow {
 		lblProcesoProductor.setBounds(615, 11, 110, 30);
 		frmProductorconsumidor.getContentPane().add(lblProcesoProductor);
 		
-		//IMAGENES
-	
 		
-		//ROJO
-		ImageIcon ii = new ImageIcon("C:\\Users\\rober\\OneDrive\\Documents\\Eclipse\\Practica_9\\src\\imagenes\\semaforo_R.png");
-		Image img = ii.getImage();
-	
-		
-		//VERDE
-		ImageIcon oo = new ImageIcon("C:\\Users\\rober\\OneDrive\\Documents\\Eclipse\\Practica_9\\src\\imagenes\\semaforo_V.png");
-		Image imgv = oo.getImage();
 		
 		
 		JLabel lblimgConsumidor = new JLabel("[IMG CONSUMIDOR]");
@@ -99,26 +162,26 @@ public class MainWindow {
 		lblimgProductor.setIcon(imgThisImg1);
 		frmProductorconsumidor.getContentPane().add(lblimgProductor);
 		
-		JLabel lbl_semaforoProducor = new JLabel("SemaforoProductor");
+		
 		lbl_semaforoProducor.setBounds(503, 23, 83, 140);
 		Image ROJO 		= img.getScaledInstance(lbl_semaforoProducor.getWidth(), lbl_semaforoProducor.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon SR	= new ImageIcon(ROJO);
 	    lbl_semaforoProducor.setIcon(SR);
 		frmProductorconsumidor.getContentPane().add(lbl_semaforoProducor);
 		
-		JLabel lbl_SemaforoConsumidor = new JLabel("[SemaforoConsumidor]");
+		
 		lbl_SemaforoConsumidor.setBounds(162, 20, 83, 147);
 		lbl_SemaforoConsumidor.setIcon(SR);
 		frmProductorconsumidor.getContentPane().add(lbl_SemaforoConsumidor);
 		
-		JLabel lblSemaforoBuffer = new JLabel("[Semaforo Buffer]");
+		
 		lblSemaforoBuffer.setBounds(357, 352, 64, 88);
 		Image ROJOB		= img.getScaledInstance(lblSemaforoBuffer.getWidth(), lblSemaforoBuffer.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon SRB	= new ImageIcon(ROJOB);
 		lblSemaforoBuffer.setIcon(SRB);
 		frmProductorconsumidor.getContentPane().add(lblSemaforoBuffer);
 		
-		JProgressBar progressBar = new JProgressBar();
+		
 		progressBar.setBounds(221, 319, 316, 14);
 		frmProductorconsumidor.getContentPane().add(progressBar);
 		
@@ -212,39 +275,15 @@ public class MainWindow {
 				System.out.println(spinner_productos.getValue());
 				System.out.println(spinner_consumos.getValue());
 				
-				BufferLimitado buffer 		= new BufferLimitado((Integer)spinner_productos.getValue(),(Integer)spinner_productos.getValue()); 
-				Productor productor 		= new Productor( buffer , (Integer) spinner_productos.getValue()); 
-				Consumidor consumidor		= new Consumidor( buffer , (Integer) spinner_TConsumo.getValue()); 
-				int aux_prod	=	0, aux_con	=	0;
-				while(true){
-					aux_prod 	= productor.return_x();
-					aux_con		= consumidor.return_x();
-					if(aux_con<aux_prod){
-						aux_prod 	= productor.return_x();
-						aux_con		= consumidor.return_x();
-						//System.out.println("aux_color<color");
-						lbl_SemaforoConsumidor.setIcon(SV);
-						lbl_semaforoProducor.setIcon(SV);
-						lblSemaforoBuffer.setIcon(SVB);
-					}else if(aux_con>aux_prod){
-						//System.out.println("aux_color>color");
-						aux_prod 	= productor.return_x();
-						aux_con		= consumidor.return_x();
-						lbl_SemaforoConsumidor.setIcon(SR);
-						lbl_semaforoProducor.setIcon(SR);
-						lblSemaforoBuffer.setIcon(SRB);
-					}else if(aux_con==aux_prod){
-						//System.out.println("aux_color==color");
-						//aux_color	= color;
-						aux_prod 	= productor.return_x();
-						aux_con		= consumidor.return_x();
-						separator_P1.setBackground(Color.RED);
-						separator_P2.setBackground(Color.RED);
-						separator_P1.setForeground(Color.RED);
-						separator_P2.setForeground(Color.RED);
-					}
-					
-				}
+				lbl_SemaforoConsumidor.setIcon(SV);
+				lbl_semaforoProducor.setIcon(SR);
+				lblSemaforoBuffer.setIcon(SVB);
+				
+				BufferLimitado	buffer	 		= new BufferLimitado((Integer)spinner_productos.getValue(),(Integer)spinner_productos.getValue()); 
+				Productor		productor 		= new Productor( buffer , (Integer) spinner_productos.getValue()); 
+				Consumidor 		consumidor		= new Consumidor( buffer , (Integer) spinner_TConsumo.getValue()); 
+				
+				
 			}
 		});
 		btnComenzar.setBounds(310, 264, 113, 23);

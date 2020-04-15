@@ -19,6 +19,7 @@ public class Productor implements Runnable {
 			System.out.println( "Artículo producido " + item ); 
 			b.deposit( item ); 
 			x++;
+			
 			Util.mySleep(time); 
 		} 
 	}

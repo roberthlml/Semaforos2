@@ -1,9 +1,11 @@
 package source;
 
+import gui.MainWindow;
+
 public class BufferLimitado
 {
 	final int size = 10;
-	int aux_value = 1;
+	int aux_value = 0;
 	double buffer[];
 	int inBuf = 0, outBuf = 0;
 	SemaforoBinario mutex = new SemaforoBinario(true);
@@ -25,6 +27,9 @@ public class BufferLimitado
 		mutex.V();
 		isEmpty.V(); // notifica a algún consumidor en espera
 		aux_value++;
+		MainWindow.barra(aux_value*10);
+		MainWindow.semaforo_CV();
+		MainWindow.semaforo_PR();
 	}
 	
 	public double fetch()
@@ -37,6 +42,9 @@ public class BufferLimitado
 		outBuf = (outBuf+1) % size;
 		mutex.V();
 		isFull.V(); // notifica a cualquier productor en espera
+		MainWindow.barra_menos(aux_value*10-10);
+		MainWindow.semaforo_CR();
+		MainWindow.semaforo_PV();
 		return value;
 	}
 	
@@ -50,15 +58,9 @@ public class BufferLimitado
 		SemaforoBinario mutex = new SemaforoBinario(true);
 		mutex.P();
 		mutex.CR();
-		mutex.V();
-		
-		
+		mutex.V();		
 		// SEMAFORO CONTADOR
-		
-		
-		
-		
-		
+
 	}*/
 }
 
