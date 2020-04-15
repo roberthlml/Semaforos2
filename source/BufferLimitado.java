@@ -27,6 +27,27 @@ public class BufferLimitado
 		mutex.V();
 		isEmpty.V(); // notifica a algún consumidor en espera
 		aux_value++;
+		if (aux_value>=100){
+			aux_value=10;
+		}if (aux_value>=90){
+			aux_value=9;
+		}if (aux_value>=80){
+			aux_value=8;
+		}if (aux_value>=70){
+			aux_value=7;
+		}if (aux_value>=60){
+			aux_value=6;
+		}if (aux_value>=50){
+			aux_value=5;
+		}if (aux_value>=40){
+			aux_value=4;
+		}if (aux_value>=30){
+			aux_value=3;
+		}if (aux_value>=20){
+			aux_value=2;
+		}if (aux_value>=10){
+			aux_value=1;
+		}
 		MainWindow.barra(aux_value*10);
 		MainWindow.semaforo_CV();
 		MainWindow.semaforo_PR();
@@ -42,9 +63,39 @@ public class BufferLimitado
 		mutex.V();
 		isFull.V(); // notifica a cualquier productor en espera
 		aux_value--;
-		MainWindow.barra((aux_value*10)-10);
 		MainWindow.semaforo_CR();
 		MainWindow.semaforo_PV();
+		if(aux_value>1&&aux_value<3){
+			aux_value=2;
+		}else
+		if(aux_value>2&&aux_value<4){
+			aux_value=3;
+		}else
+		if(aux_value>3&&aux_value<5){
+			aux_value=4;
+		}else
+		if(aux_value>4&&aux_value<6){
+			aux_value=5;
+		}else
+		if(aux_value>5&&aux_value<7){
+			aux_value=6;
+		}else
+		if(aux_value>6&&aux_value<8){
+			aux_value=7;
+		}else
+		if(aux_value>7&&aux_value<9){
+			aux_value=8;
+		}else
+		if(aux_value>8&&aux_value>10){
+			aux_value=9;
+		}else
+		if(aux_value>10){
+			aux_value=9;
+		}else
+		if(aux_value<2)
+			aux_value=2;
+		
+		MainWindow.barra(aux_value*10);
 		return value;
 	}
 	
